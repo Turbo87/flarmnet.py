@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+
+import argparse
+import flarmnet
+
+parser = argparse.ArgumentParser(description='FlarmNet data file reader for python')
+parser.add_argument('datafile', type=argparse.FileType('r'),
+                    help='The path to the FlarmNet data file to read (data.fln)')
+parser.add_argument('competition_ids', metavar='ID', nargs='+',
+                    help='One or more competition-ids to search for')
+
+args = parser.parse_args()
+
+competition_ids = [competition_id.upper() for competition_id in args.competition_ids]
+
+reader = flarmnet.Reader(args.datafile)
+for record in reader.read():
+    if record.competition_id is None:
+        continue
+
+    competition_id = record.competition_id.upper()
+    if competition_id in competition_ids:
+        print "ID: {}\n" \
+              "Pilot: {}\n" \
+              "Airfield: {}\n" \
+              "Aircraft Type: {}\n" \
+              "Aircraft Reg.: {}\n" \
+              "Competition ID: {}\n" \
+              "Radio Frequency: {}\n" \
+              .format(record.id, record.pilot, record.airfield,
+                      record.plane_type, record.registration,
+                      record.competition_id, record.radio_frequency)
