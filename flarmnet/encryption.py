@@ -1,6 +1,6 @@
 def decrypt(input):
     characters = []
-    for i in xrange(0, len(input), 2):
+    for i in range(0, len(input), 2):
         ascii = int(input[i:i + 2], 16)
         characters.append(chr(ascii))
 
@@ -8,4 +8,4 @@ def decrypt(input):
     if len(output) == 0:
         return None
 
-    return output.decode('iso-8859-1')
+    return output
