@@ -1,5 +1,6 @@
+import sys
+
 def decrypt(input):
-    import sys
     characters = []
     for i in range(0, len(input), 2):
         ascii = int(input[i:i + 2], 16)
