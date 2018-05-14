@@ -1,6 +1,7 @@
 def decrypt(input):
+    import sys
     characters = []
-    for i in xrange(0, len(input), 2):
+    for i in range(0, len(input), 2):
         ascii = int(input[i:i + 2], 16)
         characters.append(chr(ascii))
 
@@ -8,4 +9,9 @@ def decrypt(input):
     if len(output) == 0:
         return None
 
-    return output.decode('iso-8859-1')
+    if sys.version_info[0] >= 3:
+        # Python 3 specific definitions
+        return output
+    else:
+        # Python 2 specific definitions
+        return output.decode('iso-8859-1')
