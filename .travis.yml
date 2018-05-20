@@ -6,3 +6,13 @@ python:
 
 script:
   - pytest
+
+deploy:
+  provider: pypi
+  user: Tobias.Bieniek
+  password:
+    secure: VTon7qBNq2zWVOctDKjdinc5b+ZszpgXOMMB3tHPM0jk56jw7xLaOhRyyBXO5W4cCoQp+q2fNRv4PKka/crsscbbCmFhnB8ocDjDWSljolNtDRWZq0YP022CL1/ByFisqmxp4LXL2QW6jOYk5Zs6HWdw2tQDia9G9lNNc7MSdW4=
+  on:
+    tags: true
+    distributions: sdist bdist_wheel
+    repo: Turbo87/flarmnet.py
