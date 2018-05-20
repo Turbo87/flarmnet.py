@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='flarmnet',
-    version='0.1.1',
+    version='0.1.2',
     author='Tobias Bieniek',
     author_email='Tobias.Bieniek@gmx.de',
     url='https://github.com/Turbo87/flarmnet.py',
