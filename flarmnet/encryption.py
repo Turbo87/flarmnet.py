@@ -14,4 +14,4 @@ def decrypt(input):
         return output
     else:
         # Python 2 specific definitions
-        return.decode('iso-8859-1')
+        return output.decode('iso-8859-1')
